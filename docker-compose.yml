@@ -1,0 +1,49 @@
+version: "3.9"
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    container_name: automotive-genai-api
+    ports:
+      - "8000:8000"
+    environment:
+      - OPENAI_API_KEY=${OPENAI_API_KEY:-}
+      - OPENAI_BASE_URL=${OPENAI_BASE_URL:-https://llmgw-wp.tekstac.com}
+      - OPENAI_MODEL=${OPENAI_MODEL:-global.anthropic.claude-haiku-4-5-20251001-v1:0}
+      - USE_OPENAI_EMBEDDINGS=${USE_OPENAI_EMBEDDINGS:-false}
+      - VECTOR_DB_BACKEND=${VECTOR_DB_BACKEND:-faiss}
+      - VECTOR_SEARCH_WEIGHT=${VECTOR_SEARCH_WEIGHT:-0.70}
+      - KEYWORD_SEARCH_WEIGHT=${KEYWORD_SEARCH_WEIGHT:-0.30}
+      - PROMPT_VERSION=${PROMPT_VERSION:-v2}
+      - TOP_K=${TOP_K:-4}
+      - CONFIDENCE_THRESHOLD=${CONFIDENCE_THRESHOLD:-0.15}
+      - MANUALS_PDF_DIR=${MANUALS_PDF_DIR:-data/manuals_pdf}
+    volumes:
+      - vectorstore-data:/app/data/vectorstore
+      - logs-data:/app/logs
+      - feedback-data:/app/feedback_data
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 5s
+      retries: 5
+
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile.streamlit
+    container_name: automotive-genai-ui
+    ports:
+      - "8501:8501"
+    environment:
+      - API_BASE_URL=http://api:8000
+    depends_on:
+      api:
+        condition: service_healthy
+
+volumes:
+  vectorstore-data:
+  logs-data:
+  feedback-data:
