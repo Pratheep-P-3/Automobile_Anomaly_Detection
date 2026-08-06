@@ -1,0 +1,82 @@
+[
+  {
+    "code": "P0300",
+    "title": "Random/Multiple Cylinder Misfire Detected",
+    "system": "Powertrain",
+    "severity": "High",
+    "symptoms": ["engine shaking at idle", "rough idle", "loss of power", "check engine light flashing", "car jerks while driving"],
+    "doc_file": "P0300.md"
+  },
+  {
+    "code": "P0301",
+    "title": "Cylinder 1 Misfire Detected",
+    "system": "Powertrain",
+    "severity": "High",
+    "symptoms": ["single cylinder misfire", "rough idle", "engine vibration", "check engine light on"],
+    "doc_file": "P0301.md"
+  },
+  {
+    "code": "P0171",
+    "title": "System Too Lean (Bank 1)",
+    "system": "Powertrain",
+    "severity": "Medium",
+    "symptoms": ["poor fuel economy", "hesitation on acceleration", "rough idle", "check engine light on"],
+    "doc_file": "P0171.md"
+  },
+  {
+    "code": "P0420",
+    "title": "Catalyst System Efficiency Below Threshold (Bank 1)",
+    "system": "Powertrain",
+    "severity": "Medium",
+    "symptoms": ["reduced fuel economy", "sulfur/rotten egg smell from exhaust", "check engine light on", "failed emissions test"],
+    "doc_file": "P0420.md"
+  },
+  {
+    "code": "P0128",
+    "title": "Coolant Thermostat Below Regulating Temperature",
+    "system": "Powertrain",
+    "severity": "Low",
+    "symptoms": ["engine takes long to warm up", "poor cabin heater output", "low temperature gauge reading"],
+    "doc_file": "P0128.md"
+  },
+  {
+    "code": "P0455",
+    "title": "EVAP System Large Leak Detected",
+    "system": "Powertrain",
+    "severity": "Low",
+    "symptoms": ["fuel smell near vehicle", "check engine light on", "loose or missing gas cap"],
+    "doc_file": "P0455.md"
+  },
+  {
+    "code": "P0505",
+    "title": "Idle Air Control System Malfunction",
+    "system": "Powertrain",
+    "severity": "Medium",
+    "symptoms": ["unstable idle speed", "stalling at stop", "high or surging idle rpm"],
+    "doc_file": "P0505.md"
+  },
+  {
+    "code": "C0035",
+    "title": "Left Front Wheel Speed Sensor Circuit Malfunction",
+    "system": "Chassis",
+    "severity": "High",
+    "symptoms": ["ABS light on", "traction control light on", "brakes feel less responsive", "speedometer glitches"],
+    "doc_file": "C0035.md"
+  },
+  {
+    "code": "B1342",
+    "title": "ECU Malfunction (Body Control Module)",
+    "system": "Body",
+    "severity": "Critical",
+    "symptoms": ["multiple electrical systems failing", "power windows not working", "dashboard warning lights flickering", "central locking failure"],
+    "doc_file": "B1342.md"
+  },
+  {
+    "code": "U0100",
+    "title": "Lost Communication with ECM/PCM",
+    "system": "Network",
+    "severity": "Critical",
+    "symptoms": ["car won't start intermittently", "multiple warning lights at once", "engine stalls unexpectedly", "no response from engine control module"],
+    "doc_file": "U0100.md"
+  }
+]
